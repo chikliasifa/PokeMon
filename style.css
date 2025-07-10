@@ -1,0 +1,175 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #e0f7fa, #ffffff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: #007b83;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+input {
+  padding: 12px;
+  width: 60%;
+  border-radius: 10px;
+  border: 1.5px solid #b2ebf2;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background-color: #00bcd4;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #0097a7;
+}
+
+button.random {
+  background-color: #ffd600;
+  color: #000;
+}
+
+button.random:hover {
+  background-color: #fbc02d;
+}
+
+/* Loading */
+#loading {
+  font-weight: bold;
+  color: #00796b;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.dots::after {
+  content: '';
+  display: inline-block;
+  animation: dots 1s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: ''; }
+  33% { content: '.'; }
+  66% { content: '..'; }
+  100% { content: '...'; }
+}
+
+/* Pokémon Card */
+.card {
+  margin-top: 20px;
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+.card.hidden {
+  display: none;
+}
+
+.card h2 {
+  color: #00796b;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #e0f7fa;
+  padding: 8px;
+}
+
+.card p,
+.card ul {
+  margin: 10px 0;
+  text-align: left;
+  color: #444;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card li {
+  background-color: #e0f2f1;
+  margin-bottom: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}

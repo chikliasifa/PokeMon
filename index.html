@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokémon Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Pokémon Finder</h1>
+    
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Enter Pokémon name..." />
+      <button onclick="getPokemon()">Search</button>
+      <button class="random" onclick="getRandomPokemon()">🎲 Random</button>
+    </div>
+
+    <p id="loading" class="hidden">Loading<span class="dots"></span></p>
+
+    <div id="pokemon-card" class="card hidden">
+      <h2 id="poke-name"></h2>
+      <img id="poke-img" />
+      <p><strong>Type:</strong> <span id="poke-type"></span></p>
+      <p><strong>Abilities:</strong> <span id="poke-abilities"></span></p>
+      <p><strong>Base Stats:</strong></p>
+      <ul id="poke-stats"></ul>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
