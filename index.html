@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,26 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pokémon Finder</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Pokémon Finder</h1>
+    <header class="header">
+      <h1>🔍 Pokémon Finder</h1>
+      <p class="subtitle">Search and discover your favorite Pokémon</p>
+    </header>
     
-    <div class="search-box">
-      <input type="text" id="search" placeholder="Enter Pokémon name..." />
-      <button onclick="getPokemon()">Search</button>
-      <button class="random" onclick="getRandomPokemon()">🎲 Random</button>
+    <div class="search-section">
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Search Pokémon by name or ID..." />
+        <div class="search-buttons">
+          <button id="search-btn" onclick="getPokemon()">🔍 Search</button>
+          <button id="random-btn" class="random" onclick="getRandomPokemon()">🎲 Random</button>
+        </div>
+      </div>
     </div>
 
-    <p id="loading" class="hidden">Loading<span class="dots"></span></p>
+    <div id="loading" class="loading hidden">
+      <div class="pokeball">
+        <div class="pokeball-button"></div>
+      </div>
+      <p>Searching for Pokémon...</p>
+    </div>
 
-    <div id="pokemon-card" class="card hidden">
-      <h2 id="poke-name"></h2>
-      <img id="poke-img" />
-      <p><strong>Type:</strong> <span id="poke-type"></span></p>
-      <p><strong>Abilities:</strong> <span id="poke-abilities"></span></p>
-      <p><strong>Base Stats:</strong></p>
-      <ul id="poke-stats"></ul>
+    <div id="error-message" class="error-message hidden">
+      <p>❌ <span id="error-text"></span></p>
+      <button onclick="hideError()">Try Again</button>
+    </div>
+
+    <div id="pokemon-card" class="pokemon-card hidden">
+      <div class="card-header">
+        <div class="pokemon-basic-info">
+          <h2 id="poke-name"></h2>
+          <span id="poke-id" class="pokemon-id"></span>
+        </div>
+      </div>
+
+      <div class="pokemon-image">
+        <img id="poke-img" alt="Pokémon sprite" />
+      </div>
+
+      <div class="pokemon-details">
+        <div class="basic-info">
+          <div class="info-item">
+            <strong>Type:</strong>
+            <div id="poke-types" class="types-container"></div>
+          </div>
+          <div class="info-item">
+            <strong>Height:</strong> <span id="poke-height"></span>
+          </div>
+          <div class="info-item">
+            <strong>Weight:</strong> <span id="poke-weight"></span>
+          </div>
+        </div>
+
+        <div class="abilities-section">
+          <h3>Abilities</h3>
+          <div id="poke-abilities" class="abilities-list"></div>
+        </div>
+
+        <div class="stats-section">
+          <h3>Base Stats</h3>
+          <div id="poke-stats" class="stats-container"></div>
+        </div>
+      </div>
     </div>
   </div>
 
